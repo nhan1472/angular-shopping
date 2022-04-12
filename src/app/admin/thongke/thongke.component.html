@@ -1,0 +1,19 @@
+<h1>Danh sách các khách hàng</h1>
+<table class="table table-striped" style="margin-bottom: 200px;">
+    <tr>
+        <th>STT</th>
+        <th>Tên kh</th>
+        <th>email</th>
+        <th>Đại chỉ</th>
+        <th>số lần mua</th>
+        <th>tổng tiền mua</th>
+    </tr>
+    <tr *ngFor="let item of data;let i =index">
+        <td>{{i+1}}</td>
+        <td>{{item.kh.name}}</td>
+        <td>{{item.kh.email}}</td>
+        <td>{{item.kh.daichi}}</td>
+        <td>{{item.sl}}</td>
+        <td>{{item.tt}}</td>
+    </tr>
+</table>

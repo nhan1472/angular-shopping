@@ -1,0 +1,19 @@
+<form #frmLogin="ngForm" (ngSubmit)="onSubmit(frmLogin)" *ngIf="co==0">
+    <div class="container">
+      <h1>Login</h1>
+      <hr>
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" [(ngModel)]="user.email" placeholder="Enter Email" name="email"  required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" [(ngModel)]="user.pass" name="psw"  required>
+      <hr>
+      <button type="submit" class="registerbtn">Login</button>
+    </div>
+
+  </form>
+  <div *ngIf="co==1" style="font-size: 48px;text-align: center;">
+    Chao bạn đẵ đăng nhập thành công
+    (hoặc bạn đang ở quyền admin)
+ </div>

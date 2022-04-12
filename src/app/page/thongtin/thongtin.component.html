@@ -1,0 +1,31 @@
+<table class="table table-striped">
+    <h1>Thông tin của bạn</h1>
+<tr>
+    <td>Tên khách hàng</td>
+    <td>{{user.name}}</td>
+</tr>
+<tr>
+    <td>Địa chỉ</td>
+    <td>{{user.daichi}}</td>
+</tr>
+<tr>
+    <td>email</td>
+    <td>{{user.email}}</td>
+</tr>
+<a class="btn btn-danger" (click)="thaydoi()" ><h6>
+        Thây đỗi thông tin
+</h6></a>
+</table>
+<div *ngIf="a==false">
+    <form >
+            <h1>thông tin</h1>
+            <hr>
+            <label for="name"><b>name</b></label>
+            <input type="text" [(ngModel)]="user.name"  placeholder="Enter Name" name="name"  required>
+        
+            <br><label for="daichi"><b>Địa chỉ</b></label>
+            <input type="text" [(ngModel)]="user.daichi" placeholder="Enter Dai chi"  name="daichi"  required>
+            <hr>
+            <button type="submit"  (click)="Luu()">Lưu</button>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+.nav{
+    background-color: #FF8C00; 
+    font-weight:800;
+    font-size: 24px;
+    font-family:cursive;
+    a{
+        color:#fff;
+    }
+    a:hover{
+        color:#000;
+    }
+    .active{
+        color:#000;
+        background-color: #FF8C00; 
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        min-height: 150px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+        span{
+            color:#000
+        }
+      }
+      
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+}
+

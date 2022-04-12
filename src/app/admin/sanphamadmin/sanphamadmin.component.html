@@ -1,0 +1,86 @@
+<h1>Danh Sách các sản phẩm</h1>
+
+<div class="col-12" style="margin:10px 0px;">
+    
+    <input type="text" class=" col-6" placeholder="Tìm kiếm theo tên " name="searchText" [(ngModel)]="searchText" />
+    <select name="sort" class="col-3" [(ngModel)]="sort">
+        <option value="">Săp xếp</option>
+        <option value="name">Tên A->Z</option>
+        <option value="-name">Tên Z->A</option>
+        <option value="price">Giá Tăng dần</option>
+        <option value="-price">Giá giam dần</option>
+    </select>
+    <select name="sort" class="col-3" [(ngModel)]="menu">
+        <option value="0">lọc theo menu</option>
+        <option *ngFor="let item of data.menu" value="{{item.id}}">{{item.name}}</option>
+    </select>
+</div>
+<a class="btn btn-info" (click)="them()" style="color:#fff;font-weight: 500;">Thêm Sản Phẩm mới</a>
+    <form *ngIf="co==true" #frmThem="ngForm" (ngSubmit)="onSubmit(frmThem)">
+        <div class="mb-3">
+          <label for="" class="form-label">Name</label>
+          <input type="text" class="form-control" required [(ngModel)]="data1.name" name="name" >
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">img</label>
+          <input type="text" class="form-control" [(ngModel)]="data1.img" required name="img">
+          <img src="{{data1.img}}" width="100px" height="75px" alt="">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">mota</label>
+            <input type="text" class="form-control"[(ngModel)]="data1.mota" required name="mota">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">idmenu</label>
+            <input type="text" class="form-control" [(ngModel)]="data1.idmenu" required name="idmenu">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">gia</label>
+            <input type="text" class="form-control" [(ngModel)]="data1.price" required name="gia">
+          </div>
+          <button type="submit" class="btn btn-primary">Them</button>
+      </form>
+      <form *ngIf="co1==true" #frmSua="ngForm" (ngSubmit)="onSubmit1(frmSua)">
+        <div class="mb-3">
+          <label for="" class="form-label">Name</label>
+          <input type="text" class="form-control" required [(ngModel)]="data2.name" name="name" >
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">img</label>
+          <input type="text" class="form-control" [(ngModel)]="data2.img" required name="img">
+          <img src="{{data2.img}}" width="100px" height="75px" alt="">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">mota</label>
+            <input type="text" class="form-control"[(ngModel)]="data2.mota" required name="mota">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">idmenu</label>
+            <input type="text" class="form-control" [(ngModel)]="data2.idmenu" required name="idmenu">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">gia</label>
+            <input type="text" class="form-control" [(ngModel)]="data2.price" required name="gia">
+          </div>
+          <button type="submit" class="btn btn-primary">Sua</button>
+      </form>
+<table class="table table-striped">
+    <tr>
+        <th>STT</th>
+        <th>Hình</th>
+        <th>Tên</th>
+        <th>Mô Tả</th>
+        <th>Giá</th>
+        <th></th>
+        <th></th>
+    </tr>   
+    <tr *ngFor="let item of data.data | filter:searchText |sortBy:sort|filter1:menu;let i =index;">
+        <td>{{i+1}}</td>
+        <td><img src="{{item.img}}" width="70px" height="50px" alt=""></td>
+        <td><p>{{item.name}}</p></td>
+        <td><p>{{item.mota}}</p></td>
+        <td>{{item.price}}</td>
+        <td><a class="btn btn-primary"  style="background-color: rgb(0, 183, 255);"(click)="sua(item)">Sữa</a></td>
+        <td><a class="btn btn-danger" style="background-color: red;" (click)="xoa(item)">Xóa</a></td>
+    </tr>
+</table>

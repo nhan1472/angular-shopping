@@ -1,0 +1,50 @@
+<div style="margin: 50px;"><h1>Giỏ hành của bạn</h1>
+<table class="table table-striped">
+    <tr>
+        <th>STT</th>
+        <th>Hình</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>số Lượng</th>
+        <th>Thành tiền</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let item of cart;let i = index">
+        <td>{{i+1}}</td>
+        <td><img src="{{item.img}}" width="100px" height="75px" alt=""></td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>
+            <table>
+                <tr>
+                    <td><a (click)="giamsl(item)" style="padding: 10px 15px;"  class="btn btn-success">-</a></td>
+                <td >   <p style="margin: 0px 20px;font-size: 24px;font-weight: 700;">{{item.sl}}</p></td>
+                <td><a (click)="tangsl(item)" style="padding: 10px 15px;"class="btn btn-success">+</a></td>
+                </tr>
+            </table>
+           
+        </td>
+        <td>{{item.price*item.sl}}</td>
+        <td>
+        <table>
+            <tr>
+                <td><a class="btn btn-danger" (click)="removeCart(item)">Xóa</a></td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+        <td><p>Tổng số lượng</p></td>
+        <td><p>{{sl}}</p></td>
+        <td><p>Tổng Tiền</p></td>
+        <td><p>{{tt}}</p></td>
+        <td colspan="2">
+            <table>
+                <tr>
+                    <td><a class="btn btn-primary" (click)="dathang()">Đặt hàng</a></td>
+                </tr>
+            </table></td>
+    </tr>
+ 
+</table>
+</div>

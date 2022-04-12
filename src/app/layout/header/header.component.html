@@ -1,0 +1,61 @@
+<header *ngIf="co1==0">
+<ul class="nav nav-fill">
+    <li class="nav-item">
+        <a class="nav-link " aria-current="page" >
+        <img height="40px" width="40px" src="https://burgerking.vn/skin/frontend/bk2/default/images/BK_LOGO_ICON.png" alt=""></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" >Trang chủ</a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/products']"  routerLinkActive="active" >Sản phẩm</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/cart']">Giỏ hàng({{a}})</a>
+    </li>
+    <li class="nav-item dropdown"*ngIf="co==1">
+          <span>Tài khoản</span>
+          <div class="dropdown-content" >
+            <a [routerLink]="['login']"><Span>Đăng nhập</Span></a><br>
+            <a [routerLink]="['register']"><Span>Đăng Ký</Span></a>
+            </div>
+      </li>
+      <li class="nav-item dropdown"*ngIf="co==0">
+        <span>chào:{{user.name}}</span>
+        <div class="dropdown-content" >
+          <a [routerLink]="['thongtin']"><Span>Thông tin</Span></a><br>
+          <a [routerLink]="['hoadon']"><Span>Ct mua hang</Span></a><br>
+          <a (click)="logout()"><Span style="cursor:pointer;">Logout</Span></a>
+          </div>
+    </li>
+  </ul>
+
+      <div style="margin: 20px 0px;">
+        <img src="https://burgerking.vn/media/banner/image//b/a/banner-web_8.jpg" class="d-block w-100" alt="...">
+      </div>
+  
+</header>
+<header *ngIf="co1==1">
+  <ul class="nav nav-fill">
+    <li class="nav-item">
+        <a class="nav-link " aria-current="page" >
+        <img height="40px" width="40px" src="https://burgerking.vn/skin/frontend/bk2/default/images/BK_LOGO_ICON.png" alt=""></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/sanpham']" routerLinkActive="active" >Sản phẩm</a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/donhang']"  routerLinkActive="active" >Đơn hàng</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/thongke']">Thông Kê</a>
+    </li>
+
+      <li class="nav-item dropdown">
+        <span>chào:{{admin.name}}</span>
+        <div class="dropdown-content" >
+          <a (click)="logout1()"><Span style="cursor:pointer;">Logout</Span></a>
+          </div>
+    </li>
+  </ul>
+</header>
